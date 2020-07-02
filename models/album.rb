@@ -31,15 +31,15 @@ class Album
         return result.map { |album| Album.new(album)}
     end
 
-    def artist()
+    def self.find(id)
         sql = "SELECT * FROM artists
         WHERE id = $1"
-        values = [@customer_id]
+        values = [id]
         array_like_thing = SqlRunner.run(sql, values)
-        hash_like_thing = array_like_thing[0]
-        artist = .new(hash_like_thing)
-        return customer
-      end
+        album = self.new(result.first)
+        return album
+    end
+
 
       def self.delete_all() 
         sql = "DELETE FROM albums"
