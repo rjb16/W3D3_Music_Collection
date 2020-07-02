@@ -27,8 +27,9 @@ class Album
 
     def self.all()
         sql = "SELECT * FROM albums"
-        result = SqlRunner.run(sql)
-        return result.map { |album| Album.new(album)}
+        albums = SqlRunner.run(sql)
+        result = album.map { |album| Album.new(album)}
+        return result
     end
 
     def self.find(id)
