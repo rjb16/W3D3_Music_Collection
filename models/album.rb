@@ -37,9 +37,14 @@ class Album
         values = [@customer_id]
         array_like_thing = SqlRunner.run(sql, values)
         hash_like_thing = array_like_thing[0]
-        artist = Artist.new(hash_like_thing)
-        return artist
+        artist = .new(hash_like_thing)
+        return customer
       end
+
+      def self.delete_all() 
+        sql = "DELETE FROM albums"
+        SqlRunner.run(sql)     
+    end
     
 
 end
